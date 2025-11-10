@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Echoes</title>
+    <link rel="stylesheet" href="Main.css">
+    <style>
+        body {
+            min-height: 100vh;
+        }
+        .background-gradient {
+            position: fixed;
+            left: 0; top: 0; right: 0; bottom: 0;
+            z-index: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, #d3b7f8 0%, #8357e6 35%, #f2eafd 75%, #fff 100%);
+            opacity: 0.47;
+        }
+        .center-signup {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 540px;
+            max-width: 98vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .signup-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(105,62,255,0.13);
+            overflow: hidden;
+            justify-content: center;
+        }
+        .signup-bar {
+            background: linear-gradient(90deg,#693EFF,#AC7FEB);
+            height: 16px;
+            width: 100%;
+        }
+        .signup-content {
+            padding: 50px 50px 36px 50px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .signup-title {
+            font-size: 2.2em;
+            font-weight: 600;
+            color: #693EFF;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .signup-subtitle {
+            font-size: 1.09em;
+            font-weight: 500;
+            color: #6b6b6b;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .signup-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .signup-form input {
+            width: 96%;
+            padding: 13px 18px;
+            margin-bottom: 18px;
+            border: none;
+            border-radius: 9px;
+            font-size: 1.15em;
+            background: #F4F4F4;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .signup-form button {
+            width: 98%;
+            padding: 15px 0;
+            background: linear-gradient(90deg,#693EFF,#AC7FEB);
+            color: #fff;
+            border-radius: 9px;
+            font-weight: 600;
+            font-size: 1.2em;
+            border: none;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .signup-form button:hover {
+            background: #693EFF;
+        }
+        .signup-links {
+            font-size: 1.05em;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .signup-links a {
+            color: #693EFF;
+            text-decoration: none;
+            margin: 0 7px;
+        }
+        @media screen and (max-width: 640px) {
+            .center-signup { width:98%; }
+            .signup-content { padding:18px 6px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ECHO</div>
+        <nav>
+            <a href="Open.html">Home</a>
+            <a href="Stg.html">Settings</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+    <div class="background-gradient"></div>
+    <div class="center-signup">
+        <div class="signup-card">
+            <div class="signup-bar"></div>
+            <div class="signup-content">
+                <div class="signup-title">Create Your Account</div>
+                <div class="signup-subtitle">Sign up to get started with Echoes</div>
+                <form class="signup-form" autocomplete="off">
+                    <input type="text" placeholder="Full Name" name="fullname" required>
+                    <input type="email" placeholder="Email" name="email" required>
+                    <input type="text" placeholder="Username" name="username" required>
+                    <input type="password" placeholder="Password" name="password" required>
+                    <input type="password" placeholder="Confirm Password" name="confirm_password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <div class="signup-links">
+                    <a href="login.html">Already have an account? Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.location.href = 'Main.html';
+        });
+    </script>
+    <script>
+document.querySelector('.signup-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const fullname = e.target.fullname.value;
+    const email = e.target.email.value;
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirm_password.value;
+    if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
+    const response = await fetch('http://localhost:5000/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fullname, email, username, password })
+    });
+    if (response.ok) {
+        window.location.href = 'login2.html'; // success, go to login page
+    } else {
+        alert('Signup failed, try again.');
+    }
+});
+</script>
+
+</body>
+</html>

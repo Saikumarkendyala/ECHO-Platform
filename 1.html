@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Echoes</title>
+    <link rel="stylesheet" href="Main.css">
+    <style>
+        body {
+            min-height: 100vh;
+        }
+        .background-gradient {
+            position: fixed;
+            left: 0; top: 0; right: 0; bottom: 0;
+            z-index: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, #d3b7f8 0%, #8357e6 35%, #f2eafd 75%, #fff 100%);
+            opacity: 0.47;
+        }
+        .center-login {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 520px; /* Adjust size as needed */
+            max-width: 96vw;
+        }
+        .login-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(105,62,255,0.13);
+            overflow: hidden;
+        }
+        .login-bar {
+            background: linear-gradient(90deg,#693EFF,#AC7FEB);
+            height: 16px;
+            width: 100%;
+        }
+        .login-content {
+            padding: 38px 36px 30px 36px;
+            width: 100%;
+        }
+        .login-title {
+            font-size: 2em;
+            font-weight: 600;
+            color: #693EFF;
+            margin-bottom: 7px;
+        }
+        .login-topic {
+            font-size: 1.09em;
+            font-weight: 500;
+            color: #6b6b6b;
+            margin-bottom: 16px;
+        }
+        .about-section {
+            font-size:1.08em; 
+            color:#504080; 
+            margin-bottom:18px; 
+            padding:0 8px;
+            background: #f7f5fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(105,62,255,0.10);
+        }
+        .about-section ul {
+            margin-left: 16px;
+            color: #5d37a5;
+            font-size:0.96em;
+            text-align:left;
+        }
+        .about-section b {
+            color: #693EFF;
+        }
+        .about-section span {
+            color:#8357e6; 
+            font-weight:500;
+            display:block;
+            margin-top:10px;
+        }
+        .login-form input {
+            width: 94%;
+            padding: 13px 16px;
+            margin-bottom: 16px;
+            border: 1.5px solid #AC7FEB;
+            border-radius: 9px;
+            font-size: 1.1em;
+            background: #F4F4F4;
+            font-family: 'Poppins', sans-serif;
+        }
+        .login-form button {
+            width: 98%;
+            padding: 15px 0;
+            background: linear-gradient(90deg,#693EFF,#AC7FEB);
+            color: #fff;
+            border-radius: 9px;
+            font-weight: 600;
+            font-size: 1.15em;
+            border: none;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background: #693EFF;
+        }
+        .login-links {
+            font-size: 1.05em;
+            margin-top: 6px;
+            text-align: center;
+        }
+        .login-links a {
+            color: #693EFF;
+            text-decoration: none;
+            margin: 0 7px;
+        }
+        @media screen and (max-width: 640px) {
+            .center-login { width:98%; }
+            .login-content { padding:12px 5px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ECHO</div>
+        <nav>
+            <a href="Open.html">Home</a>
+            <a href="Stg.html">Settings</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <div class="background-gradient"></div>
+    <div class="center-login">
+        <div class="login-card">
+            <div class="login-bar"></div>
+            <div class="login-content">
+                <div class="login-title">Login to Echoes</div>
+                <div class="login-topic">Welcome Back!</div>
+                <!-- Application Info Block -->
+                <div class="about-section">
+                    <b>About Echoes:</b><br>
+                    Echoes is an inclusive communication platform designed to help people who are deaf and mute connect with the world. Our app offers voice-to-text conversion, real-time conversations, and accessibility-focused features so everyone can enjoy music, chat, and interact naturally.
+                    <br><br>
+                    <b>Key Features:</b>
+                    <ul>
+                        <li>Instant voice-to-text conversion for easy communication</li>
+                        <li>Support for both individual and group chatting</li>
+                        <li>Playlist generation and music streaming for everyone</li>
+                        <li>Accessible, user-friendly design and architecture</li>
+                        <li>Made for inclusion, happiness, and support</li>
+                    </ul>
+                    <span>Thank you for joining Echoes. Let's make the world more connected together!</span>
+                </div>
+                <!-- Login Form -->
+                <form class="login-form" autocomplete="off">
+                    <input type="text" placeholder="Username or Email" name="username" required>
+                    <input type="password" placeholder="Password" name="password" required>
+                    <button type="submit" class="seeMore">Login</button>
+                </form>
+                <div class="login-links">
+                    <a href="#">Forgot password?</a>
+                    <span>|</span>
+                    <a href="#">Create account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Main.js"></script>
+</body>
+</html>
